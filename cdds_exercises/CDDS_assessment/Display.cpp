@@ -47,6 +47,6 @@ void Display::Update()
     else if (menuOption == "q")
     {
         //shutdown application:
-
+        system("exit");
     }
 }

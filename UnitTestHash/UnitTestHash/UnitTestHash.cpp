@@ -13,11 +13,24 @@ namespace UnitTestHash
 
 		TEST_METHOD(HashCharTest)
 		{
-			const char* Test1 = "HeLlO";
-			unsigned int result = 850;
+			//Something weird is going on through the code, i have check the proper results of the hashing and the expected is true.
+			// Tested and succeded: Test1 with resultA, resultB included
 
-			Assert::AreEqual(result, HashFunction::HashKey(Test1, 1));
-			Assert::AreEqual(result, HashFunction::HashKey(Test1, 1));
+			const char* Test1 = "HeLlO";
+			unsigned int resultA = 850;
+			unsigned int resultB = 1501;
+
+			Assert::AreEqual(resultA, HashFunction::HashKey(Test1, 1));
+			Assert::AreEqual(resultB, HashFunction::HashKey(Test1, 9));
+
+			const char* Test2 = "Bob Lighter";
+			unsigned int resultC = 1594219837;
+
+			const char* Test3 = "Jeffery";
+			unsigned int resultD = 1839057095;
+
+			Assert::AreEqual(resultC, HashFunction::StringHash(Test2, sizeof(Test2)));
+			Assert::AreEqual(resultD, HashFunction::StringHash(Test3, sizeof(Test3)));
 			//Test on char* array's has value.
 		}
 
@@ -34,16 +47,21 @@ namespace UnitTestHash
 			const char* Test1 = "General";
 			const char* Test2 = "Kenobi";
 
-			table[Test1] = 1;
-			table[Test2] = 2;
+			unsigned int TestFunctionA = HashingFunctions::HashKey(Test1, sizeof(Test1));
+			unsigned int TestFunctionB = HashingFunctions::HashKey(Test2, sizeof(Test2));
+
+			int resultA = 151;
+			int resultB = 875;
+
+			table[Test1] = TestFunctionA;
+			table[Test2] = TestFunctionB;
 
 			//Test 1
-			Assert::AreEqual(table[Test1], 1);
-			Assert::AreEqual(table[Test1], 1);
+			Assert::AreEqual(resultA, table[Test1]);
 
 			//Test 2
-			Assert::AreEqual(table[Test2], 2);
-			Assert::AreEqual(table[Test2], 2);
+			Assert::AreEqual(resultB, table[Test2]);
+
 		}
 	};
 }

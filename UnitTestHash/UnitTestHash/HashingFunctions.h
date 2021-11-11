@@ -33,17 +33,7 @@ namespace HashingFunctions
 
 	unsigned int HashKey(const char* data, unsigned int multiplier = 4);
 
-	//unsigned int StringHash(unsigned char* data, unsigned int size)
-	//{
-	//	unsigned int hash = 0;
-
-	//	for (unsigned int i = 0; i < size; ++i)
-	//	{
-	//		hash = (hash * 1515) + data[i];
-	//	}
-
-	//	return (hash & 0x7FFFFFFF);
-	//}
+	unsigned int StringHash(const char* data, unsigned int size);
 	// a helper to access a default hash function
 	static HashFunc basic = HashFunction;
 };
@@ -64,15 +54,15 @@ public:
 		return hash % 0x777;
 	}
 
-	//static unsigned int StringHash(unsigned char* data, unsigned int size)
-	//{
-	//	unsigned int hash = 0;
+	static unsigned int StringHash(const char* data, unsigned int size)
+	{
+		unsigned int hash = 0;
 
-	//	for (unsigned int i = 0; i < size; ++i)
-	//	{
-	//		hash = (hash * 1515) + data[i];
-	//	}
+		for (unsigned int i = 0; i < size; ++i)
+		{
+			hash = (hash * 1515) + data[i];
+		}
 
-	//	return (hash & 0x7FFFFFFF);
-	//}
+		return (hash & 0x7FFFFFFF);
+	}
 };

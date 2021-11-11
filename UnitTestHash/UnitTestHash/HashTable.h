@@ -35,8 +35,6 @@ public:
 		auto hashedKey = m_hash(key) % m_size;
 		return m_data[hashedKey]; 
 	}
-
-
 	//ideally this would be a std::function
 	//specified as a template parameter
 	/*unsigned int hashFunction(const KeyType& key)

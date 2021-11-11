@@ -2,7 +2,6 @@
 #include <functional>
 #include <iostream>
 
-//template<typename KeyType, typename T>
 namespace HashingFunctions 
 {
 
@@ -12,25 +11,13 @@ namespace HashingFunctions
 	
 	// ADD YOUR FUNCTIONS HERE
 	
-	//unsigned int HashKeys(unsigned int data[], unsigned int key_iter = 4)
-	//{
-	//	unsigned int hash = 0;
-	//	
-	//	for (int i = 0; i < sizeof(data); i++)
-	//	{
-	//		data[i] = data[i] * sizeof(data);
-	//	}
-	//
-	//	return hash;
-	//}
-	
 	unsigned int HashFunction(const char* data, unsigned int length);
 
 	static unsigned int HashsFunction(const char* data, unsigned int length);
 
 	unsigned int HashKey(const char* data, unsigned int multiplier = 4);
 
-	unsigned int StringHash(unsigned char* data, unsigned int size)
+	unsigned int StringHash(const char* data, unsigned int size)
 	{
 		unsigned int hash = 0;
 
@@ -61,7 +48,7 @@ public:
 		return hash % 0x777;
 	}
 
-	static unsigned int StringHash(unsigned char* data, unsigned int size)
+	static unsigned int StringHash(const char* data, unsigned int size)
 	{
 		unsigned int hash = 0;
 

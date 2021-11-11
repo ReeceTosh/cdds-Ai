@@ -20,14 +20,16 @@ int main()
 		}
 	);
 
-	const char* Test1 = "hey";
-	auto TestFunction1 = HashingFunctions::basic(Test1, sizeof(Test1));
+	const char* Test1 = "Testing one";
+	auto TestFunction1 = HashingFunctions::StringHash(Test1, sizeof(Test1));
 	//unsigned int key;
 
 	unsigned int Test2[] = { 25, 3, 2, 6, 8 };
 	//unsigned int TestFunction2 = HashingFunctions::HashFunction(Test2);
 
-	//table[Test1] = 42;
+	
+
+	table[Test1] = TestFunction1;
 
 	cout << "Displaying Test: " << table[Test1] << endl;
 
@@ -79,4 +81,16 @@ unsigned int HashingFunctions::HashKey(const char* data, unsigned int multiplier
 	}
 
 	return hash % 0x777;
+}
+
+unsigned int HashingFunctions::StringHash(const char* data, unsigned int size)
+{
+	unsigned int hash = 0;
+
+	for (unsigned int i = 0; i < size; ++i)
+	{
+		hash = (hash * 1515) + data[i];
+	}
+
+	return (hash & 0x7FFFFFFF);
 }

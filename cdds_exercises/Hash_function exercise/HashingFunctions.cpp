@@ -7,10 +7,6 @@
 
 using namespace std;
 
-//General idea of what a hashtable looks like: GameObject** hashTable= new GameObject* [ tableSize];
-
-//LOOK INTO M_DATA IN THE HASHTABLE.H FILE!!!!
-
 int main()
 {
 	//m_size / function being used
@@ -21,18 +17,36 @@ int main()
 	);
 
 	const char* Test1 = "HeLlO";
-	auto TestFunction1 = HashingFunctions::basic(Test1, sizeof(Test1));
+	auto TestFunction1 = HashingFunctions::HashKey(Test1, 1);
 	//unsigned int key;
 
 	unsigned int Test2[] = { 25, 3, 2, 6, 8 };
 	//unsigned int TestFunction2 = HashingFunctions::HashFunction(Test2);
 
-	table[Test1] = 42;
 
+	const char* test1 = "General";
+	unsigned int TestFunction2 = HashingFunctions::HashKey(test1, sizeof(test1));
 
-	//HashingFunctions::HashKey(Test1, 1)
-	cout << "Displaying Test: " << HashFunction::HashKey(Test1, 1) << endl;
+	const char* test2 = "Kenobi";
+	unsigned int TestFunction3 = HashingFunctions::HashKey(test2, sizeof(test2));
 
+	const char* test3 = "Jeffery";
+	
+	table[Test1] = TestFunction1;
+	//111688
+
+	table[test1] = TestFunction2;
+	//1586
+
+	table[test2] = TestFunction3;
+	//480298
+
+	cout << "Displaying Test, HashKey(General): " << TestFunction2 << "\n" << endl;
+	cout << "Displaying Test, HashKey(Kenobi): " << TestFunction3 << "\n" << endl;
+
+	cout << "Displaying Test, table[Kenobi]: " << table[test2] << "\n" << endl;
+	cout << "Displaying Test, table[General]: " << table[test1] << "\n" << endl;
+	
 	return 0;
 }
 
@@ -80,5 +94,5 @@ unsigned int HashingFunctions::HashKey(const char* data, unsigned int multiplier
 		hash += data[i] % 16;
 	}
 
-	return hash % 0x777;
+	return hash % 0x77777;
 }
