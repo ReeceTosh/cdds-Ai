@@ -1,15 +1,15 @@
 READ ME:
 
-AIEYear1Samples:
+AIEYear1Samples file:
 
  - Binary Tree exercise
  - Inter-Process communications exercise
 
-cdds_exercises:
+cdds_exercises file:
   
  - Hashtable exercise
  - double-linked list exercise
 
-Unit Test:
+Unit Test file:
  
  Unit test is using code from Hashtable exercise as tests.

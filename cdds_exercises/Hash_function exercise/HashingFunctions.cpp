@@ -47,6 +47,7 @@ int main()
 	cout << "Displaying Test, table[Kenobi]: " << table[test2] << "\n" << endl;
 	cout << "Displaying Test, table[General]: " << table[test1] << "\n" << endl;
 	
+	system("pause");
 	return 0;
 }
 

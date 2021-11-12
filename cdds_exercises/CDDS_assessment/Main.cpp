@@ -15,6 +15,5 @@ int main()
 
 	display.Update();
 
-	
 	return 0;
 }

@@ -56,6 +56,18 @@ void doubleLinkedList::printListReverse()
 	}
 }
 
+void doubleLinkedList::Display(bool isBackwards)
+{
+	if (isBackwards)
+	{
+		printListReverse();
+	}
+	else
+	{
+		printAllList();
+	}
+}
+
 void doubleLinkedList::printAllList()
 {
 	ListNode* n = head;
