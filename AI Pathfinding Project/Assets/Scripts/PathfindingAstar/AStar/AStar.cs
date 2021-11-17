@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AStar : MonoBehaviour
 {
+    //NOTE: The algorithm plays but it isn't choosing the quickest path there, look at search algorithm, aie lecture and tutrorial as to why this may be.
+
     private const int MoveStraightCost = 10;
     private const int MoveDiagonalCost = 14;
 
@@ -11,7 +13,6 @@ public class AStar : MonoBehaviour
     private List<PathNodeAI> openList;
     private List<PathNodeAI> closedList;
 
-    //check if code breaks/doesn't function
     private PathNodeAI currentNode;
 
     public static AStar Instance { get; private set; }
@@ -117,7 +118,7 @@ public class AStar : MonoBehaviour
         return MoveDiagonalCost * Mathf.Min(xDistance, yDistance) + MoveStraightCost * remaining;
     }
 
-    //Read
+    //This is part of the search algorithm, this retreives all neighbouring nodes of the current node (Horizontal, Vertical and Diagonal).
     private List<PathNodeAI> GetNeighbourList(PathNodeAI currentNode)
     {
         List<PathNodeAI> neighbourList = new List<PathNodeAI>();
@@ -127,18 +128,34 @@ public class AStar : MonoBehaviour
             // Left
             neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y));
             // Left Down
-            if (currentNode.y - 1 >= 0) neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y - 1));
+            if (currentNode.y - 1 >= 0)
+            {
+                neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y - 1));
+            }
             // Left Up
-            if (currentNode.y + 1 < grid.GetHeight()) neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y + 1));
+            if (currentNode.y + 1 < grid.GetHeight())
+            {
+                neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y + 1));
+            }
         }
         if (currentNode.x + 1 < grid.GetWidth())
         {
             // Right
             neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y));
             // Right Down
-            if (currentNode.y - 1 >= 0) neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y - 1));
+            if (currentNode.y - 1 >= 0)
+            {
+                neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y - 1));
+            }
+            else
+            {
+
+            }
             // Right Up
-            if (currentNode.y + 1 < grid.GetHeight()) neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y + 1));
+            if (currentNode.y + 1 < grid.GetHeight())
+            {
+                neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y + 1));
+            }
         }
         // Down
         if (currentNode.y - 1 >= 0) neighbourList.Add(GetNode(currentNode.x, currentNode.y - 1));

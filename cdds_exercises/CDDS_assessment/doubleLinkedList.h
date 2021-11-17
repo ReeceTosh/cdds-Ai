@@ -41,6 +41,7 @@ public:
 	void pushFront(int value);
 	void pushBack(int value);
 
+	void BubbleSort(ListNode* startNode);
 private:
 
 	ListNode* head;

@@ -45,6 +45,8 @@ void doubleLinkedList::printList(ListNode* n)
 void doubleLinkedList::printListReverse()
 {
 	ListNode* n = tail;
+	ListNode* h = head;
+	BubbleSort(h);
 
 	for (int i = count()-1; i >= 0; i--)
 	{
@@ -71,6 +73,7 @@ void doubleLinkedList::Display(bool isBackwards)
 void doubleLinkedList::printAllList()
 {
 	ListNode* n = head;
+	BubbleSort(n);
 
 	for (int i = 0; i < count(); i++)
 	{
@@ -82,7 +85,6 @@ void doubleLinkedList::printAllList()
 	}
 }
 
-//todo:
 int& doubleLinkedList::first()
 {
 	doubleLinkedList f;
@@ -92,7 +94,6 @@ int& doubleLinkedList::first()
 	return head->data;
 }
 
-//todo:
 int& doubleLinkedList::last()
 {
 	doubleLinkedList f;
@@ -313,6 +314,41 @@ void doubleLinkedList::pushBack(int value)
 	{
 		head = newNode;
 	}
+}
+
+void doubleLinkedList::BubbleSort(ListNode* startNode)
+{
+	bool swapped;
+	ListNode* ptrStart;
+	ListNode* ptrEnd = nullptr;
+
+	//If empty, don't do the sort
+	if (startNode == nullptr)
+	{
+		return;
+	}
+
+	//The sort will run at least once.
+	do
+	{
+		//It will receive the parameter and set it to a local variable
+		//for the remainder of the loop.
+		swapped = false;
+		ptrStart = startNode;
+
+		//While the next node isn't empty/NULL
+		while (ptrStart->next != ptrEnd)
+		{
+			//Does a check/comparison of values and sorts them in ascending order.
+			if (ptrStart->data > ptrStart->next->data)
+			{
+				swap(ptrStart->data, ptrStart->next->data);
+				swapped = true;
+			}
+			ptrStart = ptrStart->next;
+		}
+		ptrEnd = ptrStart;
+	} while (swapped);
 }
 
 //checked...
