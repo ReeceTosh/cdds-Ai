@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
 
-
 public class GridSquare<TGridObject>
 {
     public event EventHandler<OnGridSquareObjectChangedEventArgs> OnGridObjectChanged;
@@ -14,8 +13,6 @@ public class GridSquare<TGridObject>
         public int x;
         public int y;
     }
-
-
 
     public const int obstructionValueMax = 100;
     public const int obstructionValueMin = 0;
@@ -145,6 +142,9 @@ public class GridSquare<TGridObject>
         return GetGridObject(x, y);
     }
 
+
+
+
     //Sets a value of your choice within the coordinates in world space
     //public void SetValue(int x, int y, int value)
     //{
@@ -183,7 +183,7 @@ public class GridSquare<TGridObject>
     //-------------------------------------------------------------------------
 
     //Retrieves world postion.
-    private Vector3 GetWorldPosition(int x, int y)
+    public Vector3 GetWorldPosition(int x, int y)
     {
         return new Vector3(x, y) * cellSize + originPostition;
     }

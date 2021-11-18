@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 698130857}
   - component: {fileID: 698130856}
   - component: {fileID: 698130855}
-  - component: {fileID: 698130854}
   m_Layer: 0
   m_Name: HeatMapVisual
   m_TagString: Untagged
@@ -142,18 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &698130854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698130853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d35c7050d296864d928baf9377791b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &698130855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -227,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703947236}
   - component: {fileID: 703947235}
+  - component: {fileID: 703947237}
   m_Layer: 0
   m_Name: Testing
   m_TagString: Untagged
@@ -241,12 +229,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703947234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d91ed330ed92c41885fcf550e47324, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dd5d9403266e84439f6f95f5b01b547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wall: {fileID: 21300000, guid: aacfe961153a138419e1e36debd25476, type: 3}
 --- !u!4 &703947236
 Transform:
   m_ObjectHideFlags: 0
@@ -261,6 +248,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &703947237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703947234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5b76ff1466f634c97f22a76f510032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wall: {fileID: 21300000, guid: 249aeb5b38f42694c82aabd62d3da288, type: 3}
+  player: {fileID: 0}
 --- !u!1 &953624041
 GameObject:
   m_ObjectHideFlags: 0

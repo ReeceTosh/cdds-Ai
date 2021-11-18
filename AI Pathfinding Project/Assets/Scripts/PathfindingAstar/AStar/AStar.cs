@@ -5,6 +5,7 @@ using UnityEngine;
 public class AStar : MonoBehaviour
 {
     //NOTE: The algorithm plays but it isn't choosing the quickest path there, look at search algorithm, aie lecture and tutrorial as to why this may be.
+    public static int squareCount = 0;
 
     private const int MoveStraightCost = 10;
     private const int MoveDiagonalCost = 14;
@@ -19,6 +20,7 @@ public class AStar : MonoBehaviour
 
     public AStar(int width, int height)
     {
+        Instance = this;
         grid = new GridSquare<PathNodeAI>(width, height, 10f, Vector3.zero, (GridSquare<PathNodeAI> grid, int x, int y) => new PathNodeAI(grid, x, y));
     }
 
@@ -57,7 +59,7 @@ public class AStar : MonoBehaviour
         }
 
         startNode.gCost = 0;
-        startNode.hCost = CaluclateDistance(startNode, endNode);
+        startNode.hCost = CalculateDistance(startNode, endNode);
         startNode.CalculateFc();
 
         //DebugAStarVisual.Instance.ClearSnapshots();
@@ -87,11 +89,13 @@ public class AStar : MonoBehaviour
                     continue;
                 }
 
-                int tentativeGCost = currentNode.gCost + CaluclateDistance(currentNode, neighbourNode);
-                int fScore = tentativeGCost + 1;
+                int tentativeGCost = currentNode.gCost + CalculateDistance(currentNode, neighbourNode);
+                int hScore = CalculateDistance(neighbourNode, endNode);
+                int fScore = tentativeGCost + hScore;
                 if (!openList.Contains(neighbourNode))
                 {
                     neighbourNode.gCost = tentativeGCost;
+                    neighbourNode.hCost = hScore;
                     neighbourNode.fCost = fScore;
                     neighbourNode.cameFromNode = currentNode;
                     openList.Add(neighbourNode);
@@ -99,6 +103,7 @@ public class AStar : MonoBehaviour
                 else if (fScore > neighbourNode.fCost)
                 {
                     neighbourNode.gCost = tentativeGCost;
+                    neighbourNode.hCost = hScore;
                     neighbourNode.fCost = fScore;
                     neighbourNode.cameFromNode = currentNode;
                 }
@@ -110,7 +115,7 @@ public class AStar : MonoBehaviour
     }
 
     //Calcluate total distance
-    private int CaluclateDistance(PathNodeAI a, PathNodeAI b)
+    private int CalculateDistance(PathNodeAI a, PathNodeAI b)
     {
         int xDistance = Mathf.Abs(a.x - b.x);
         int yDistance = Mathf.Abs(a.y - b.y);
@@ -122,46 +127,86 @@ public class AStar : MonoBehaviour
     private List<PathNodeAI> GetNeighbourList(PathNodeAI currentNode)
     {
         List<PathNodeAI> neighbourList = new List<PathNodeAI>();
+        Debug.Log("Grid Square #" + squareCount.ToString());
 
         if (currentNode.x - 1 >= 0)
         {
-            // Left
-            neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y));
             // Left Down
             if (currentNode.y - 1 >= 0)
             {
-                neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y - 1));
+                if (!GetNode(currentNode.x - 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y - 1).isWalkable)
+                {
+                    //Do nothing
+                    Debug.Log("Left-Down node checked but isn't applicable");
+                }
+                else
+                {
+                    neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y - 1));
+                    Debug.Log("Left-down node checked successfully.");
+                }
             }
+
             // Left Up
             if (currentNode.y + 1 < grid.GetHeight())
             {
-                neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y + 1));
+                if (!GetNode(currentNode.x - 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y + 1).isWalkable)
+                {
+                    //Do nothing
+                    Debug.Log("Left-up node checked but isn't applicable");
+                }
+                else
+                {
+                    neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y + 1));
+                    Debug.Log("Left-up node checked successfully.");
+                }
             }
+
+            // Left
+            neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y));
         }
         if (currentNode.x + 1 < grid.GetWidth())
         {
-            // Right
-            neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y));
+            
             // Right Down
             if (currentNode.y - 1 >= 0)
             {
-                neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y - 1));
+                if (!GetNode(currentNode.x + 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y - 1).isWalkable)
+                {
+                    //Do nothing.
+                    Debug.Log("Right-Down node checked but isn't applicable");
+                }
+                else
+                {
+                    neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y - 1));
+                    Debug.Log("Right-down node checked successfully.");
+                }
             }
-            else
-            {
 
-            }
+
             // Right Up
             if (currentNode.y + 1 < grid.GetHeight())
             {
-                neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y + 1));
+                //Check the node isWalkable true for the AI.
+                if (!GetNode(currentNode.x + 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y + 1).isWalkable)
+                {
+                    //Do nothing.
+                    Debug.Log("Right-up node checked but isn't applicable");
+                }
+                else
+                {
+                    neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y + 1));
+                    Debug.Log("Right-up node checked successfully.");
+                }
             }
+
+            // Right
+            neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y));
         }
         // Down
         if (currentNode.y - 1 >= 0) neighbourList.Add(GetNode(currentNode.x, currentNode.y - 1));
         // Up
         if (currentNode.y + 1 < grid.GetHeight()) neighbourList.Add(GetNode(currentNode.x, currentNode.y + 1));
-
+        Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         return neighbourList;
     }
 
