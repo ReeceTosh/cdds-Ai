@@ -82,7 +82,7 @@ public class DebugAStarVisual : MonoBehaviour
         gridSnapshotActionList.Clear();
     }
 
-    public void TakeSnapshot(GridSquare<PathNodeAI> grid, PathNodeAI current, List<PathNodeAI> openList, List<PathNodeAI> closedList)
+    public void TakeSnapshot(GridSquare grid, PathNodeAI current, List<PathNodeAI> openList, List<PathNodeAI> closedList)
     {
         GridSnapshotAction gridSnapshotAction = new GridSnapshotAction();
         gridSnapshotAction.AddAction(HideNodeVisuals);
@@ -130,7 +130,7 @@ public class DebugAStarVisual : MonoBehaviour
         gridSnapshotActionList.Add(gridSnapshotAction);
     }
 
-    public void TakeSnapshotFinalPath(GridSquare<PathNodeAI> grid, List<PathNodeAI> path)
+    public void TakeSnapshotFinalPath(GridSquare grid, List<PathNodeAI> path)
     {
         GridSnapshotAction gridSnapshotAction = new GridSnapshotAction();
         gridSnapshotAction.AddAction(HideNodeVisuals);

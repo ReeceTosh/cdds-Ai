@@ -19,7 +19,8 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        player.GetComponent<Player>();
+        if (player != null)
+            player.GetComponent<Player>();
 
         enemyX = (int)enemyAI.gameObject.transform.localPosition.x;
         enemyY = (int)enemyAI.gameObject.transform.localPosition.y;
@@ -52,7 +53,7 @@ public class EnemyAI : MonoBehaviour
         //The attack state needs to have a raycast that displays the field of view while finding the player location 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
         Debug.DrawRay(originPoint.transform.position, Vector2.up * distance, Color.red);
-  
+
         if (hit.collider == player)
         {
             Vector3 pos = gameObject.transform.position;

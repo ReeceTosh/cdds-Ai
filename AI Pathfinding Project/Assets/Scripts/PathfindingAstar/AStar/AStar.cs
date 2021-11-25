@@ -10,7 +10,7 @@ public class AStar : MonoBehaviour
     private const int MoveStraightCost = 10;
     private const int MoveDiagonalCost = 14;
 
-    private GridSquare<PathNodeAI> grid;
+    private GridSquare grid;
     private List<PathNodeAI> openList;
     private List<PathNodeAI> closedList;
 
@@ -21,10 +21,10 @@ public class AStar : MonoBehaviour
     public AStar(int width, int height)
     {
         Instance = this;
-        grid = new GridSquare<PathNodeAI>(width, height, 10f, Vector3.zero, (GridSquare<PathNodeAI> grid, int x, int y) => new PathNodeAI(grid, x, y));
+        grid = new GridSquare(width, height, 10f, Vector3.zero, (GridSquare grid, int x, int y) => new PathNodeAI(grid, x, y));
     }
 
-    public GridSquare<PathNodeAI> GetGrid()
+    public GridSquare GetGrid()
     {
         return grid;
     }

@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PathNodeAI
 {
-    
-    private GridSquare<PathNodeAI> grid;
+    public enum nodeType
+    {
+        isWalkable,
+        playerSpawn,
+        enemySpawn
+    }
+
+    private GridSquare grid;
     public int x;
     public int y;
 
@@ -17,12 +23,12 @@ public class PathNodeAI
     public bool isWalkable;
     public PathNodeAI cameFromNode;
 
-    public PathNodeAI(GridSquare<PathNodeAI> grid, int x, int y)
+    public PathNodeAI(GridSquare grid, int x, int y)
     {
         this.grid = grid;
         this.x = x;
         this.y = y;
-        
+        isWalkable = true;
     }
 
     public override string ToString()
