@@ -1,0 +1,13 @@
+- change color if square is walkable. (pathnodeAi, TestAstarClick, Astar)
+
+- Set check for enemy spawn to prevent spawning in walls
+
+- Spawn player and set up player movement
+
+- Set up enemy movement and behaviour.
+
+
+Extra:
+
+- change from text to images or gameobjects.
+
