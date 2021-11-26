@@ -244,14 +244,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 703947234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ddc0247a73ad849b7109d3e40623d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 27d91ed330ed92c41885fcf550e47324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Wall: {fileID: 0}
-  player: {fileID: 0}
-  enemy: {fileID: 8636359085806357434, guid: 608770f1da125474487c1ffe1443d2f7, type: 3}
-  xAxisGrid: 12
-  yAxisGrid: 12
+  player: {fileID: 5643148166450052478, guid: 2a257ae87ee944142aa8affde1ec2224, type: 3}
+  enemy: {fileID: 8636359085806357434, guid: b254148ad8a34cc4bb54504bc756dbf9, type: 3}
 --- !u!1 &953624041
 GameObject:
   m_ObjectHideFlags: 0

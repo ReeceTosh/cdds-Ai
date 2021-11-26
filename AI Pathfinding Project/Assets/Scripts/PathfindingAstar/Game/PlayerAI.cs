@@ -11,6 +11,9 @@ public class PlayerAI : MonoBehaviour
     public static int healthPoints;
     public float speed;
 
+    private int currentPathIndex;
+    private List<Vector3> pathList;
+
     private readonly EnemyAI enemy;
     public static EnemyAI[] enemyStaged;
 
@@ -27,20 +30,45 @@ public class PlayerAI : MonoBehaviour
     }
     void Update()
     {
-        //This allows movement
-        var movementHorizontal = Input.GetAxis("Horizontal");
-        var movementVertical = Input.GetAxis("Vertical");
-        transform.position += new Vector3(movementHorizontal, movementVertical, 0) * Time.deltaTime * speed;
 
         Display();
 
-        if (Input.GetKeyDown("space"))
+
+        //if (Input.GetKeyDown("space"))
+        //{
+        //    healthPoints -= 1;
+        //    Debug.Log("Player has received damage: " + 1);
+        //    Display();
+        //}
+    }
+
+    public void Movement()
+    {
+        //This allows movement as long as a path exists
+        if (pathList != null)
         {
-            healthPoints -= 1;
-            Debug.Log("Player has received damage: " + 1);
-            Display();
+            Vector3 targetPosition = pathList[currentPathIndex];
+            //If it is far enough or close enough to the target position
+            if (Vector3.Distance(transform.position, targetPosition) > 1f)
+            {
+                //Direction for movement
+                Vector3 moveDir = (targetPosition - transform.position).normalized;
+
+                //Movement
+                //float distanceBefore = Vector3.Distance(transform.position, targetPosition);
+                transform.position = transform.position + moveDir * speed * Time.deltaTime;
+            }
+            else
+            {
+                currentPathIndex++;
+                if (currentPathIndex >= pathList.Count)
+                {
+                    pathList = null;
+                }
+            }
         }
     }
+
     public int GetPlayerHP()
     {
         return healthPoints;
@@ -65,6 +93,17 @@ public class PlayerAI : MonoBehaviour
         else
         {
             //do nothing
+        }
+    }
+
+    //Problem is related to this and the path not properly reading.
+    public void SetTargetPosition(Vector3 targetPosition)
+    {
+        currentPathIndex = 0;
+        pathList = Pathfinding.Instance.FindPath(transform.position, targetPosition);
+        if ( pathList != null && pathList.Count > 1)
+        {
+            pathList.RemoveAt(0);
         }
     }
 

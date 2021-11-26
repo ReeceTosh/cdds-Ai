@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     public EnemyAIMode aIMode = EnemyAIMode.Wander;
     [SerializeField] private GameObject originPoint;
-    [SerializeField] private GameObject player;
+    private GameObject player;
     [SerializeField] private GameObject enemyAI;
 
     private AStar pathfind;
@@ -19,8 +19,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        if (player != null)
-            player.GetComponent<Player>();
+        player = FindObjectOfType<GameObject>();
 
         enemyX = (int)enemyAI.gameObject.transform.localPosition.x;
         enemyY = (int)enemyAI.gameObject.transform.localPosition.y;

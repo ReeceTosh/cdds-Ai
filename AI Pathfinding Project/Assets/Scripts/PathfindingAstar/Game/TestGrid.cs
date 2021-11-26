@@ -8,7 +8,7 @@ public class TestGrid : MonoBehaviour
     private AStar pathfinding;
     void Start()
     {
-        pathfinding = new AStar(5, 5);
+        pathfinding = new AStar(5, 5, Vector3.zero);
 
     }
 

@@ -18,10 +18,10 @@ public class AStar : MonoBehaviour
 
     public static AStar Instance { get; private set; }
 
-    public AStar(int width, int height)
+    public AStar(int width, int height, Vector3 originPoint)
     {
         Instance = this;
-        grid = new GridSquare(width, height, 10f, Vector3.zero, (GridSquare grid, int x, int y) => new PathNodeAI(grid, x, y));
+        grid = new GridSquare(width, height, 10f, originPoint, (GridSquare grid, int x, int y) => new PathNodeAI(grid, x, y));
     }
 
     public GridSquare GetGrid()
@@ -29,12 +29,45 @@ public class AStar : MonoBehaviour
         return grid;
     }
 
+    public List<Vector3> FindPath(Vector3 startPosition, Vector3 endPosition)
+    {
+        //Convert world positions into the grid positions.
+        grid.GetXY(startPosition, out int startX, out int startY);
+        grid.GetXY(endPosition, out int endX, out int endY);
+
+        //Calculate path
+        List<PathNodeAI> path = FindPath(startX, startY, endX, endY);
+
+        if (path == null)
+        {
+            return null;
+        }
+        else
+        {
+            List<Vector3> vectorPath = new List<Vector3>();
+            foreach (PathNodeAI pathnode in path)
+            {
+                vectorPath.Add(new Vector3(pathnode.x, pathnode.y) * grid.GetCellSize() + Vector3.one * grid.GetCellSize() * .5f);
+            }
+            return vectorPath;
+        }
+    }
+
     //Read
     public List<PathNodeAI> FindPath(int startX, int startY, int endX, int endY)
     {
+        if (startX < 0 || startY < 0)
+        {
+            startX = Mathf.Abs(startX);
+            startY = Mathf.Abs(startY);
+        }
+
         //Gets start and end node in the grid path
         PathNodeAI startNode = grid.GetGridObject(startX, startY);
         PathNodeAI endNode = grid.GetGridObject(endX, endY);
+
+        Debug.Log("Start: " + startNode);
+        Debug.Log("End: " + endNode);
 
         //if it is a illegitimate path
         if (startNode == null || endNode == null)
