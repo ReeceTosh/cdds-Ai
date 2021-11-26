@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.3</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.5</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.1.10f1</UnityVersion>
@@ -56,140 +56,140 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_\Base\BaseScripts\CharacterPathfindingMovementHandler.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\FunctionTimer.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectTransform_LateUpdate.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\V_UnitSkeleton_Composite_Weapon.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Grid\GridSquare.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_TimeScaleManager.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\PathQueue.cs" />
-    <Compile Include="Assets\Scripts\Utilities\UtilityClass.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\Button_UI.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\PathRoute.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\MaterialTintColor.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Game\PlayerAI.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IActiveInactive.cs" />
-    <Compile Include="Assets\_\_GameHandler_Setup.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\MapPos.cs" />
-    <Compile Include="Assets\Pathfinding\Scripts\Grid.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\CharacterSwordHandler.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\FunctionUpdater.cs" />
-    <Compile Include="Assets\Pathfinding\Scripts\PathNode.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectTransformBody.cs" />
     <Compile Include="Assets\_\Stuff\Scripts\GameAssets.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectLogic_SkeletonUpdater.cs" />
-    <Compile Include="Assets\Pathfinding\Scripts\PathfindingVisual.cs" />
-    <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\WeaponTracer.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IObjectTransformBody.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Game\TestAstarClick.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\Button_Sprite.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\EnemyHandler.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\V_UnitSkeleton_Composite_Walker.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Game\EnemyAI.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\Player_Base.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\UVVectors.cs" />
-    <Compile Include="Assets\Pathfinding\Scripts\Pathfinding.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\AStar\AStar.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\PlayerPositionMovement.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\UtilsClass.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\SetSpriteSorting.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\PlayerPunch.cs" />
-    <Compile Include="Assets\CodeMonkey\Assets.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\SpriteAnimator.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\Shoot_Flash.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Game\HealthStation.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\Enemy_Base.cs" />
-    <Compile Include="Assets\Pathfinding\Scripts\MeshUtils.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\CharacterAimHandler.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\CharacterWaypointsHandler.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\Enemy.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IDestroySelf.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\FullscreenPlayMode.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_Object.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\UI_BarMultiple.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\AStar\DebugAStarVisual.cs" />
-    <Compile Include="Assets\CodeMonkey\MonoBehaviours\ComponentActions.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\AnimatedWalker.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\LastMoveTo.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\PathNode.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\UI_Bar.cs" />
-    <Compile Include="Assets\Pathfinding\Scripts\PathfindingDebugStepVisual.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\FlyingBody.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\UI_TextComplex.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\Dirt_Handler.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\GameHandler_Setup.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\ScreenshotHandler.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Game\GameSetUp.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\Blood_Handler.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\UnitMovement.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\PlayerSword.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
-    <Compile Include="Assets\CodeMonkey\Utils\UI_Sprite.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\Sound_Manager.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Game\TestGrid.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IObjectActiveLogic.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\AStar\PathNodeAI.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\Player.cs" />
-    <Compile Include="Assets\_\Stuff\GridPathfinding\BinaryTree.cs" />
-    <Compile Include="Assets\CodeMonkey\MonoBehaviours\CameraFollow.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\HealthSystem.cs" />
-    <Compile Include="Assets\CodeMonkey\MonoBehaviours\CameraFollowSetup.cs" />
+    <Compile Include="Assets\Pathfinding\Scripts\PathNode.cs" />
     <Compile Include="Assets\Pathfinding\Scripts\Testing.cs" />
-    <Compile Include="Assets\_\Base\BaseScripts\CharacterPositionMovementHandler.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IObjectTransform.cs" />
-    <Compile Include="Assets\_\Stuff\Scripts\Generic_Mesh_Script.cs" />
-    <Compile Include="Assets\CodeMonkey\MonoBehaviours\PositionRendererSorter.cs" />
-    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_Main.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\SpriteAnimator.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Game\PlayerAI.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\ScreenshotHandler.cs" />
     <Compile Include="Assets\_\Stuff\GridPathfinding\GridPathfinding.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\PlayerPositionMovement.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\AStar\DebugAStarVisual.cs" />
+    <Compile Include="Assets\CodeMonkey\MonoBehaviours\PositionRendererSorter.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\FunctionTimer.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\Dirt_Handler.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\UI_BarMultiple.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\PathNode.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Game\EnemyAI.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\CharacterSwordHandler.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\CharacterPositionMovementHandler.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\Sound_Manager.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\CharacterPathfindingMovementHandler.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectLogic_SkeletonUpdater.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectTransformBody.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\UVVectors.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Game\TestAstarClick.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_TimeScaleManager.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\UtilsClass.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\UI_TextComplex.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectTransform_LateUpdate.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\PlayerSword.cs" />
+    <Compile Include="Assets\Pathfinding\Scripts\MeshUtils.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\MaterialTintColor.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\UnitMovement.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IObjectActiveLogic.cs" />
+    <Compile Include="Assets\Pathfinding\Scripts\PathfindingDebugStepVisual.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\Player_Base.cs" />
     <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_ObjectTransform.cs" />
-    <Compile Include="Assets\Scripts\PathfindingAstar\Grid\HeatVisual.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\AStar\PathNodeAI.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\Shoot_Flash.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IActiveInactive.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IObjectTransform.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\Player.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\FunctionUpdater.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\LastMoveTo.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
+    <Compile Include="Assets\CodeMonkey\MonoBehaviours\CameraFollowSetup.cs" />
+    <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
+    <Compile Include="Assets\Scripts\Utilities\UtilityClass.cs" />
     <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IHasWorldPosition.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\FullscreenPlayMode.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IObjectTransformBody.cs" />
+    <Compile Include="Assets\Pathfinding\Scripts\PathfindingVisual.cs" />
+    <Compile Include="Assets\Pathfinding\Scripts\Pathfinding.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\WeaponTracer.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\AnimatedWalker.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\EnemyHandler.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\Generic_Mesh_Script.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\HealthSystem.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\CharacterAimHandler.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_IDestroySelf.cs" />
+    <Compile Include="Assets\CodeMonkey\MonoBehaviours\CameraFollow.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\Button_UI.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\PlayerPunch.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_Main.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\Enemy_Base.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\BinaryTree.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Game\GameSetUp.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\V_UnitSkeleton_Composite_Weapon.cs" />
+    <Compile Include="Assets\_\Stuff\V_ObjectSystem\V_Object.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\FlyingBody.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\MapPos.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\PathQueue.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\GameHandler_Setup.cs" />
+    <Compile Include="Assets\_\Stuff\GridPathfinding\PathRoute.cs" />
+    <Compile Include="Assets\Pathfinding\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Grid\HeatVisual.cs" />
+    <Compile Include="Assets\CodeMonkey\MonoBehaviours\ComponentActions.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\AStar\AStar.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Grid\GridSquare.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\SetSpriteSorting.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\Enemy.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\V_UnitSkeleton_Composite_Walker.cs" />
+    <Compile Include="Assets\_\_GameHandler_Setup.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\Button_Sprite.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Game\TestGrid.cs" />
+    <Compile Include="Assets\_\Base\BaseScripts\CharacterWaypointsHandler.cs" />
+    <Compile Include="Assets\_\Stuff\Scripts\Blood_Handler.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\UI_Bar.cs" />
+    <Compile Include="Assets\Scripts\PathfindingAstar\Game\HealthStation.cs" />
+    <Compile Include="Assets\CodeMonkey\Assets.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
+    <Compile Include="Assets\CodeMonkey\Utils\UI_Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\_\Stuff\Shaders\GrayscaleToAlpha.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_UI_Blur.shader" />
-     <None Include="Assets\_\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\_\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_UI_Greyscale.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_TransDiffuseWithTint.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_TestUnlit.shader" />
+     <None Include="Assets\_\Stuff\Shaders\VertexLitCG.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\_\Stuff\Shaders\Endless_UI_SolidColorTint.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Test.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\_\Stuff\Shaders\VertexLitCG.shader" />
-     <None Include="Assets\_\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_SolidColorTint.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_TransDiffuse_Alpha.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Shadow.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Shadow_Vertical.shader" />
-     <None Include="Assets\_\Stuff\Shaders\MultiplyTwoTextures.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_FogOfWarPersistenEffect.shader" />
      <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Hue.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_BW.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-     <None Include="Assets\CodeMonkey\README.txt" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_TransColor.shader" />
-     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Default.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_UI_Blur.shader" />
      <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Outline.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_TestUnlit.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_TransColor.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\CodeMonkey\README.txt" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Shadow.shader" />
+     <None Include="Assets\_\Stuff\Shaders\MultiplyTwoTextures.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\_\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_TransDiffuseWithTint.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\_\Stuff\Shaders\Endless_TransDiffuse.shader" />
-     <None Include="Assets\_\Stuff\Shaders\3DText.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_SolidColorTint.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_FogOfWarPersistenEffect.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Shadow_Vertical.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Default.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_BW.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_UI_Greyscale.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_Sprites_Test.shader" />
+     <None Include="Assets\_\Stuff\Shaders\Endless_TransDiffuse_Alpha.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+     <None Include="Assets\_\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\_\Stuff\Shaders\3DText.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\_\Stuff\Shaders\GrayscaleToAlpha.shader" />
+     <None Include="Assets\_\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -378,6 +378,9 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -733,11 +736,23 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Path.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
@@ -745,14 +760,56 @@
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

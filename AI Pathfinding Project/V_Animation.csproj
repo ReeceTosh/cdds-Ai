@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.3</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.5</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.1.10f1</UnityVersion>
@@ -56,18 +56,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_\Stuff\V_Animation\UnitAnim.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\UVType.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\V_UnitSkeleton.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\BodyPart.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\UnitAnimType.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\V_Skeleton_Frame.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\V_Skeleton_Updater.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\V_Skeleton_Anim.cs" />
     <Compile Include="Assets\_\Stuff\V_Animation\SaveSystem.cs" />
     <Compile Include="Assets\_\Stuff\V_Animation\CLZF2.cs" />
-    <Compile Include="Assets\_\Stuff\V_Animation\V_UnitAnimation.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\BodyPart.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\UnitAnimType.cs" />
     <Compile Include="Assets\_\Stuff\V_Animation\V_Animation.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\UVType.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\V_UnitAnimation.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\V_Skeleton_Updater.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\V_Skeleton_Anim.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\V_Skeleton_Frame.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\V_UnitSkeleton.cs" />
+    <Compile Include="Assets\_\Stuff\V_Animation\UnitAnim.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\_\Stuff\V_Animation\V_Animation.asmdef" />
@@ -277,6 +277,9 @@
     </Reference>
     <Reference Include="UnityEditor.UWP.Extensions">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.10f1\Editor\Data\PlaybackEngines\MetroSupport\UnityEditor.UWP.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>

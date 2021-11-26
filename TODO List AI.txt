@@ -11,3 +11,9 @@ Extra:
 
 - change from text to images or gameobjects.
 
+
+
+
+the playermovement will be using a vector3 list to gather all path nodes within the list and cycle through them and translating them into the path for the player to move.
+
+look at update and SetTargetPosition() to see how it works.
