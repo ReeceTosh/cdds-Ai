@@ -9,7 +9,7 @@ public class PlayerAI : MonoBehaviour
     [SerializeField] private HealthStation station;
 
     public static int healthPoints;
-    public float speed;
+    public float speed = 1;
 
     private int currentPathIndex;
     private List<Vector3> pathList;
@@ -21,7 +21,7 @@ public class PlayerAI : MonoBehaviour
     {
         healthPoints = 10;
         enemyStaged = FindObjectsOfType<EnemyAI>();
-        speed = 1;
+
 
         if (slider != null)
         {
@@ -32,17 +32,11 @@ public class PlayerAI : MonoBehaviour
     {
 
         Display();
+        MovementPlayer();
 
-
-        //if (Input.GetKeyDown("space"))
-        //{
-        //    healthPoints -= 1;
-        //    Debug.Log("Player has received damage: " + 1);
-        //    Display();
-        //}
     }
 
-    public void Movement()
+    public void MovementPlayer()
     {
         //This allows movement as long as a path exists
         if (pathList != null)
@@ -87,7 +81,7 @@ public class PlayerAI : MonoBehaviour
             if (slider.value <= 0)
             {
                 slider.value = 0;
-                Application.Quit();
+                //Application.Quit();
             }
         }
         else
@@ -99,12 +93,17 @@ public class PlayerAI : MonoBehaviour
     //Problem is related to this and the path not properly reading.
     public void SetTargetPosition(Vector3 targetPosition)
     {
+        pathList = AStar.Instance.FindPath(transform.position, targetPosition);
         currentPathIndex = 0;
-        pathList = Pathfinding.Instance.FindPath(transform.position, targetPosition);
-        if ( pathList != null && pathList.Count > 1)
+        //pathList = AStar.Instance.FindPath(transform.position, targetPosition);
+
+
+        if (pathList != null && pathList.Count > 1)
         {
             pathList.RemoveAt(0);
         }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -127,6 +126,6 @@ public class PlayerAI : MonoBehaviour
             station.RemovePack();
             Debug.Log("PlayerHP: " + GetPlayerHP());
 
-        } 
+        }
     }
 }

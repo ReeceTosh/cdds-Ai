@@ -66,8 +66,8 @@ public class AStar : MonoBehaviour
         PathNodeAI startNode = grid.GetGridObject(startX, startY);
         PathNodeAI endNode = grid.GetGridObject(endX, endY);
 
-        Debug.Log("Start: " + startNode);
-        Debug.Log("End: " + endNode);
+        //Debug.Log("Start: " + startNode);
+        //Debug.Log("End: " + endNode);
 
         //if it is a illegitimate path
         if (startNode == null || endNode == null)
@@ -160,7 +160,7 @@ public class AStar : MonoBehaviour
     private List<PathNodeAI> GetNeighbourList(PathNodeAI currentNode)
     {
         List<PathNodeAI> neighbourList = new List<PathNodeAI>();
-        Debug.Log("Grid Square #" + squareCount.ToString());
+        //Debug.Log("Grid Square #" + squareCount.ToString());
 
         if (currentNode.x - 1 >= 0)
         {
@@ -170,12 +170,12 @@ public class AStar : MonoBehaviour
                 if (!GetNode(currentNode.x - 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y - 1).isWalkable)
                 {
                     //Do nothing
-                    Debug.Log("Left-Down node checked but isn't applicable");
+                    //Debug.Log("Left-Down node checked but isn't applicable");
                 }
                 else
                 {
                     neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y - 1));
-                    Debug.Log("Left-down node checked successfully.");
+                    //Debug.Log("Left-down node checked successfully.");
                 }
             }
 
@@ -185,12 +185,12 @@ public class AStar : MonoBehaviour
                 if (!GetNode(currentNode.x - 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y + 1).isWalkable)
                 {
                     //Do nothing
-                    Debug.Log("Left-up node checked but isn't applicable");
+                    //Debug.Log("Left-up node checked but isn't applicable");
                 }
                 else
                 {
                     neighbourList.Add(GetNode(currentNode.x - 1, currentNode.y + 1));
-                    Debug.Log("Left-up node checked successfully.");
+                    //Debug.Log("Left-up node checked successfully.");
                 }
             }
 
@@ -206,12 +206,12 @@ public class AStar : MonoBehaviour
                 if (!GetNode(currentNode.x + 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y - 1).isWalkable)
                 {
                     //Do nothing.
-                    Debug.Log("Right-Down node checked but isn't applicable");
+                    //Debug.Log("Right-Down node checked but isn't applicable");
                 }
                 else
                 {
                     neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y - 1));
-                    Debug.Log("Right-down node checked successfully.");
+                    //Debug.Log("Right-down node checked successfully.");
                 }
             }
 
@@ -223,12 +223,12 @@ public class AStar : MonoBehaviour
                 if (!GetNode(currentNode.x + 1, currentNode.y).isWalkable && !GetNode(currentNode.x, currentNode.y + 1).isWalkable)
                 {
                     //Do nothing.
-                    Debug.Log("Right-up node checked but isn't applicable");
+                    //Debug.Log("Right-up node checked but isn't applicable");
                 }
                 else
                 {
                     neighbourList.Add(GetNode(currentNode.x + 1, currentNode.y + 1));
-                    Debug.Log("Right-up node checked successfully.");
+                    //Debug.Log("Right-up node checked successfully.");
                 }
             }
 
@@ -239,7 +239,7 @@ public class AStar : MonoBehaviour
         if (currentNode.y - 1 >= 0) neighbourList.Add(GetNode(currentNode.x, currentNode.y - 1));
         // Up
         if (currentNode.y + 1 < grid.GetHeight()) neighbourList.Add(GetNode(currentNode.x, currentNode.y + 1));
-        Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        //Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         return neighbourList;
     }
 

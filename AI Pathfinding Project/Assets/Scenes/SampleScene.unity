@@ -244,12 +244,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 703947234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d91ed330ed92c41885fcf550e47324, type: 3}
+  m_Script: {fileID: 11500000, guid: 56422e395dd637f4bacc14d5145c0f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wall: {fileID: 0}
-  player: {fileID: 5643148166450052478, guid: 2a257ae87ee944142aa8affde1ec2224, type: 3}
-  enemy: {fileID: 8636359085806357434, guid: b254148ad8a34cc4bb54504bc756dbf9, type: 3}
+  playerPrefab: {fileID: 85531996853072970, guid: 1e83dfc621840324baf2b7bae079f63f, type: 3}
+  enemyPrefab: {fileID: 5284265935269883742, guid: 0f1377e21be81874a8189f31f37b2915, type: 3}
 --- !u!1 &953624041
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +302,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 68.840515
+  orthographic size: 61.118504
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -6,13 +6,20 @@ using CodeMonkey.Utils;
 
 public class TestAstarClick : MonoBehaviour
 {
-    [SerializeField] private Sprite Wall;
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject enemy;
+    //assign clone as the reference.
+
+    //[SerializeField] private Sprite Wall;
+    [SerializeField] private PlayerAI playerPrefab;
+    [SerializeField] private EnemyAI enemyPrefab;
+    private PlayerAI player;
+    private EnemyAI enemy;
     private AStar pathfinding;
+    private AStar pathfindingAI;
 
     private int xAxisGrid = 12;
     private int yAxisGrid = 12;
+
+    private float wanderTimer = 0.0f;
 
     void Start()
     {
@@ -22,6 +29,9 @@ public class TestAstarClick : MonoBehaviour
 
         SpawnEnemy();
         SpawnPlayer();
+
+        player = FindObjectOfType<PlayerAI>();
+        enemy = FindObjectOfType<EnemyAI>();
     }
 
     void MapGeneration()
@@ -50,8 +60,8 @@ public class TestAstarClick : MonoBehaviour
         pathfinding.GetNode(0, 0).SetIsWalkable(!pathfinding.GetNode(0, 0).isWalkable);
 
         Vector2[] cords ={ new Vector2(1, 10) , new Vector2( 3, 9 ), new Vector2( 5, 9 ), new Vector2( 7, 9 ), new Vector2( 6, 8 ), new Vector2( 7, 8 ), new Vector2( 8, 8 ), new Vector2( 2, 7 ), new Vector2( 4, 7 ), new Vector2( 7, 7 ),
-                         new Vector2( 2, 5 ), new Vector2( 4, 5 ), new Vector2( 6, 5 ), new Vector2( 8, 5 ), new Vector2( 2, 4 ), new Vector2( 9, 4 ), new Vector2( 2, 3 ), new Vector2( 3, 3 ), new Vector2( 5, 3 ), new Vector2( 6, 3 ), new Vector2( 8, 3 ),
-                         new Vector2( 3, 2 ), new Vector2( 7, 2 ), new Vector2( 5, 1 ), new Vector2( 9, 1 ) };
+                           new Vector2( 2, 5 ), new Vector2( 4, 5 ), new Vector2( 6, 5 ), new Vector2( 8, 5 ), new Vector2( 2, 4 ), new Vector2( 9, 4 ), new Vector2( 2, 3 ), new Vector2( 3, 3 ), new Vector2( 5, 3 ), new Vector2( 6, 3 ), 
+                           new Vector2( 8, 3 ), new Vector2( 3, 2 ), new Vector2( 7, 2 ), new Vector2( 5, 1 ), new Vector2( 9, 1 ) };
 
         for (int i = 0; i < cords.Length; i++)
         {
@@ -68,8 +78,6 @@ public class TestAstarClick : MonoBehaviour
 
     void SpawnEnemy()
     {
-
-
         //Update Check at some point
         int x;
         int y;
@@ -78,7 +86,8 @@ public class TestAstarClick : MonoBehaviour
 
         if (!pathfinding.GetNode(x, y).isWalkable)
         {
-            CordGeneration(out x, out y);
+            SpawnEnemy();
+            return;
         }
         else
         {
@@ -86,12 +95,37 @@ public class TestAstarClick : MonoBehaviour
             pos.x += 5f;
             pos.y += 5f;
 
-            GameObject clone = Instantiate(enemy);
+            EnemyAI clone = Instantiate(enemyPrefab);
             clone.transform.position = pos;
 
             pos.x -= 5f;
             pos.y -= 5f;
             Debug.Log(pos);
+        }
+    }
+
+    public void AstarEnemyRandom()
+    {
+        if (wanderTimer < 2.0f)
+        {
+            wanderTimer += Time.deltaTime;
+            return;
+        }
+        wanderTimer = 0.0f;
+
+        for (int i = 0; i < 10; i++)
+        {
+            int randomX;
+            int randomY;
+
+            CordGeneration(out randomX, out randomY);
+
+            if (AStar.Instance.GetNode(randomX, randomY).isWalkable)
+            {
+                Vector3 pos = AStar.Instance.GetGrid().GetWorldPosition(randomX, randomY);
+                enemy.GetComponent<EnemyAI>().SetTargetPosition(pos);
+                break;
+            }
         }
     }
 
@@ -101,7 +135,7 @@ public class TestAstarClick : MonoBehaviour
         pos.x += 5f;
         pos.y += 5f;
 
-        GameObject clone = Instantiate(player);
+        PlayerAI clone = Instantiate(playerPrefab);
         clone.transform.position = pos;
 
         pos.x -= 5f;
@@ -116,37 +150,31 @@ public class TestAstarClick : MonoBehaviour
 
     private void Update()
     {
-        //pathfinding.GetNode((int)playerPos.x, (int)playerPos.y).x - 5, pathfinding.GetNode((int)playerPos.x - 5, (int)playerPos.y).y,
-        //Vector3 playerPos = player.transform.position;
-        //int pX;
-        //int pY;
-        //pathfinding.GetGrid().GetXY(playerPos, out pX, out pY);
-
         if (Input.GetMouseButtonDown(0))
-        {
-            //(int)player.transform.position.x, (int)player.transform.position.y
-                
+        {       
             //Get world position within the grid and find the path from 0,0 to where ever the mouse was clicked
             Vector3 mouseWorldPosition = UtilityClass.GetMouseWorldPosition();
+
             pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
 
-            List<PathNodeAI> path = pathfinding.FindPath(1, 1, x, y);
-            Debug.Log("Path length:" + path.Count);
-            if (path != null)
+            if (pathfinding.GetNode(x, y).isWalkable)
             {
-                for (int i = 0; i < path.Count - 1; i++)
-                {
-                    AStar.squareCount++;
-                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, 5);
-                }
-
-                //player.GetComponent<PlayerAI>().SetTargetPosition(mouseWorldPosition);
-                //player.GetComponent<PlayerAI>().Movement();
+                //List<PathNodeAI> path = pathfinding.FindPath(1, 1, x, y);
+                //Debug.Log("Path length:" + path.Count);
+               // if (path != null)
+               // {
+                    player.GetComponent<PlayerAI>().SetTargetPosition(mouseWorldPosition);
+               //}
+               //else
+               //{
+               //    Debug.Log("No Path was found");
+               //}
             }
             else
             {
-                Debug.Log("No Path was found");
+                Debug.Log("ERROR: node is not walkable / no path was found.");
             }
+
         }
 
         //Sets up grid with walkable tiles
@@ -164,5 +192,7 @@ public class TestAstarClick : MonoBehaviour
                 pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
             }
         }
+
+        
     }
 }
