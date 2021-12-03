@@ -8,8 +8,8 @@ public class PlayerAI : MonoBehaviour
     [SerializeField] private Slider slider = null;
     [SerializeField] private HealthStation station;
 
-    public static int healthPoints;
-    public float speed = 1;
+    public  int healthPoints;
+    public float speedPlayer;
 
     private int currentPathIndex;
     private List<Vector3> pathList;
@@ -30,10 +30,8 @@ public class PlayerAI : MonoBehaviour
     }
     void Update()
     {
-
         Display();
         MovementPlayer();
-
     }
 
     public void MovementPlayer()
@@ -50,7 +48,7 @@ public class PlayerAI : MonoBehaviour
 
                 //Movement
                 //float distanceBefore = Vector3.Distance(transform.position, targetPosition);
-                transform.position = transform.position + moveDir * speed * Time.deltaTime;
+                transform.position = transform.position + moveDir * speedPlayer * Time.deltaTime;
             }
             else
             {

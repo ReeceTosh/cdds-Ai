@@ -6,20 +6,22 @@ using CodeMonkey.Utils;
 
 public class TestAstarClick : MonoBehaviour
 {
-    //assign clone as the reference.
 
-    //[SerializeField] private Sprite Wall;
     [SerializeField] private PlayerAI playerPrefab;
     [SerializeField] private EnemyAI enemyPrefab;
+
     private PlayerAI player;
     private EnemyAI enemy;
+
     private AStar pathfinding;
-    private AStar pathfindingAI;
 
     private int xAxisGrid = 12;
     private int yAxisGrid = 12;
 
     private float wanderTimer = 0.0f;
+
+    public float DetectionRadius = 100;
+    public float FightRadius = 7;
 
     void Start()
     {
@@ -60,7 +62,7 @@ public class TestAstarClick : MonoBehaviour
         pathfinding.GetNode(0, 0).SetIsWalkable(!pathfinding.GetNode(0, 0).isWalkable);
 
         Vector2[] cords ={ new Vector2(1, 10) , new Vector2( 3, 9 ), new Vector2( 5, 9 ), new Vector2( 7, 9 ), new Vector2( 6, 8 ), new Vector2( 7, 8 ), new Vector2( 8, 8 ), new Vector2( 2, 7 ), new Vector2( 4, 7 ), new Vector2( 7, 7 ),
-                           new Vector2( 2, 5 ), new Vector2( 4, 5 ), new Vector2( 6, 5 ), new Vector2( 8, 5 ), new Vector2( 2, 4 ), new Vector2( 9, 4 ), new Vector2( 2, 3 ), new Vector2( 3, 3 ), new Vector2( 5, 3 ), new Vector2( 6, 3 ), 
+                           new Vector2( 2, 5 ), new Vector2( 4, 5 ), new Vector2( 6, 5 ), new Vector2( 8, 5 ), new Vector2( 2, 4 ), new Vector2( 9, 4 ), new Vector2( 2, 3 ), new Vector2( 3, 3 ), new Vector2( 5, 3 ), new Vector2( 6, 3 ),
                            new Vector2( 8, 3 ), new Vector2( 3, 2 ), new Vector2( 7, 2 ), new Vector2( 5, 1 ), new Vector2( 9, 1 ) };
 
         for (int i = 0; i < cords.Length; i++)
@@ -104,8 +106,38 @@ public class TestAstarClick : MonoBehaviour
         }
     }
 
+    public void AstarEnemyAttack()
+    {
+        if (Vector3.Distance(player.transform.position, enemy.transform.position) <= DetectionRadius)
+        {
+            Debug.Log("target locked");
+
+            int x = (int)player.transform.position.x / (int)AStar.Instance.GetGrid().GetCellSize();
+            int y = (int)player.transform.position.y / (int)AStar.Instance.GetGrid().GetCellSize();
+
+            Vector3 pos = AStar.Instance.GetGrid().GetWorldPosition(x, y);
+            enemy.GetComponent<EnemyAI>().SetTargetPosition(pos);
+        }
+
+        if (Vector3.Distance(player.transform.position, enemy.transform.position) <= FightRadius)
+        {
+            if (wanderTimer < 2.0f)
+            {
+                wanderTimer += Time.deltaTime;
+                return;
+            }
+            wanderTimer = 0.0f;
+
+            player.healthPoints--;
+            Debug.Log("Fear not for I AM HERE.");
+        }
+
+
+    }
+
     public void AstarEnemyRandom()
     {
+        //Timer for the update loop to execute code every few seconds
         if (wanderTimer < 2.0f)
         {
             wanderTimer += Time.deltaTime;
@@ -143,15 +175,10 @@ public class TestAstarClick : MonoBehaviour
         Debug.Log(pos);
     }
 
-    void PlayerGridPosition()
-    {
-        pathfinding.GetGrid().GetXY(player.transform.position, out int x, out int y);
-    }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {       
+        {
             //Get world position within the grid and find the path from 0,0 to where ever the mouse was clicked
             Vector3 mouseWorldPosition = UtilityClass.GetMouseWorldPosition();
 
@@ -159,16 +186,7 @@ public class TestAstarClick : MonoBehaviour
 
             if (pathfinding.GetNode(x, y).isWalkable)
             {
-                //List<PathNodeAI> path = pathfinding.FindPath(1, 1, x, y);
-                //Debug.Log("Path length:" + path.Count);
-               // if (path != null)
-               // {
-                    player.GetComponent<PlayerAI>().SetTargetPosition(mouseWorldPosition);
-               //}
-               //else
-               //{
-               //    Debug.Log("No Path was found");
-               //}
+                player.GetComponent<PlayerAI>().SetTargetPosition(mouseWorldPosition);
             }
             else
             {
@@ -177,22 +195,22 @@ public class TestAstarClick : MonoBehaviour
 
         }
 
+        //DEBUG ONLY!!!
+
         //Sets up grid with walkable tiles
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 mouseWorldPosition = UtilityClass.GetMouseWorldPosition();
-            pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    Vector3 mouseWorldPosition = UtilityClass.GetMouseWorldPosition();
+        //    pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
 
-            if (pathfinding.GetNode(x, y) == null)
-            {
-                return;
-            }
-            else
-            {
-                pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
-            }
-        }
-
-        
+        //    if (pathfinding.GetNode(x, y) == null)
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
+        //    }
+        //}
     }
 }
